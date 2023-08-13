@@ -1,0 +1,19 @@
+body{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.place-deck{
+  width:1200px;
+  height:100%;
+  outline:3px solid black;
+  display:grid;
+  grid-template-columns: 220px 220px 220px 220px 220px;
+  grid-template-rows: 280px 280px 280px  280px ;
+  gap:7px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
