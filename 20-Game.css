@@ -6,7 +6,7 @@ body{
 .place-deck{
   width:1200px;
   height:100%;
-  outline:3px solid black;
+  /*outline:3px solid black;*/
   display:grid;
   grid-template-columns: 220px 220px 220px 220px 220px;
   grid-template-rows: 280px 280px 280px  280px ;
@@ -17,6 +17,13 @@ body{
   justify-content: center;
   align-items: center;
 }
-.cards{
-  cursor:pointer;
+.container{
+  /*outline:1px solid black;*/
+  text-align: center;
+  width:200px;
+  height:270px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  perspective: 800px;
 }
