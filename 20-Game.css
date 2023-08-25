@@ -1,8 +1,4 @@
-body{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-}
+
 .place-deck{
   width:1200px;
   height:100%;
@@ -16,6 +12,7 @@ body{
   text-align: center;
   justify-content: center;
   align-items: center;
+  position:absolute;
 }
 .container{
   /*outline:1px solid black;*/

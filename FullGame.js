@@ -1,5 +1,6 @@
 const version=document.title[0]+''+document.title[1];
 console.log(version);
+let html='';//have to predefine with '' or else first box is undefined.
 shuffle(version);
 
 
@@ -8,7 +9,6 @@ console.log('entered');
 console.log(length);
 let rand;
 let count=0;
-let html='';//have to predefine with '' or else first box is undefined.
 
 if(length==40){
 while(count<40){
@@ -69,8 +69,9 @@ else{
 document.querySelector('.place-deck').innerHTML=html;
 }
 
+let tries=0;
 let flipped=[];
-let collection=0;
+let collection=0 //version-2 //--> to check end result faster;
 let i=0;
 let amount=0;
 let prev=0;
@@ -79,8 +80,7 @@ console.log(card);
 
 card.forEach((div,index)=>{
   div.addEventListener('click',()=>{
-  if(div.dataset.side==='front'){
-  if(amount===0 && div.innerHTML!==''&& div.dataset.flip==='false'&& amount<2){
+  if(amount===0 && div.innerHTML!==''&& div.dataset.flip==='false'&&!open){
     flipped.push(div.dataset.number); 
     i=div.dataset.id;
     div.dataset.flip=true;
@@ -88,26 +88,43 @@ card.forEach((div,index)=>{
     document.getElementById(i).classList.add('cardsAfter');
     amount++;
   }
-   else if(amount===1 && div.innerHTML!=='' && div.dataset.flip==='false'&& amount<2){
+   else if(amount===1 && div.innerHTML!=='' && div.dataset.flip==='false' &&!open){
     flipped.push(div.dataset.number);
     div.dataset.flip=true;
     document.getElementById(div.dataset.id).classList.add('cardsAfter');
     amount++;
     if(flipped[0]===flipped[1]){
+    tries++;
     console.log('same');
     collection+=2
+   if(collection==version){
     setTimeout(()=>{
-    document.getElementById(i).innerHTML='';//or display none for smoother effect
-    div.innerHTML='';//or display none for smoother effect)
+      document.querySelector('.cont').innerHTML=`
+      <h2 class="end">End Of Game</h2>
+      <p class="end-message"> You have collected the ${version} cards in ${tries} tries. </p>
+      <p><button class="play-again" onclick="addlevel();"> Play Again </button></p>
+      <div class="levels"></div>
+      <button> Home Page </button>
+      </div>`;
+      document.querySelector('.cont').style.display='block';
+      document.querySelector('.place-deck').innerHTML='';
+      document.querySelector('.navi').style.display='none';
+       },
+      700
+      )
+  }
+  else{
+    setTimeout(()=>{
+    document.getElementById(i).innerHTML='';
+    div.innerHTML='';
     amount=0;
       },
       1000
     )
-    console.log(collection);
-    if(collection==version)
-    console.log('You are done!');
+  }
     } 
    else{
+    tries++;
     console.log('different');
     div.dataset.flip=false;
     card[prev].dataset.flip=false;
@@ -121,8 +138,79 @@ card.forEach((div,index)=>{
      }
    flipped=[];
   }
-}
     });
 });
+
+let open=false;
+
+function menu(id){
+  open=true;
+  if(id==='one'){
+    document.getElementById('one').classList.add('active');
+    document.getElementById('two').classList.remove('active');
+    document.getElementById('three').classList.remove('active');
+    document.querySelector('.cont').innerHTML=`
+    <h2 class="end">About Game</h2>
+    <p class="end-message"> This game was implemented to challenge your memory. You should start by picking 2 cards and if they have a similar design/number, you have collected these cards. The goal is to collect all cards (number of cards depends on chosen level). It all comes back to whether you remember what cards you had previously flipped and their location, so focus and show us what you've got! Good Luck and Have Fun! </p> <p><button class="play-again"onclick="back();">Back To Game</button></p>`;
+  }
+  else if(id==='two'){
+    document.getElementById('two').classList.add('active');
+    document.getElementById('one').classList.remove('active');
+    document.getElementById('three').classList.remove('active');
+    document.querySelector('.cont').innerHTML=`
+    <h2 class="end">Settings</h2>
+    <p class="end-message">
+   <button  class="play-again" onclick=" addlevel();">
+    Restart
+    </button>
+    </p>
+    <div class="levels"></div>
+    <p>
+    <button class="play-again"> Home Page 
+    </button>
+    </p>
+    <p>
+    <button class="play-again" onclick="back();">Back To Game</button>
+    </p>`;
+  }
+  else{
+    document.getElementById('three').classList.add('active');
+    document.getElementById('two').classList.remove('active');
+    document.getElementById('one').classList.remove('active');
+    document.querySelector('.cont').innerHTML=` 
+    <h2 class="end">Credits</h2>
+    <p class="end-message"> Program and website produced by <span>Salma Tarek Soliman</span></p>
+    <p>Instagram:<a class="level" href="https://www.instagram.com/salma_.tarek/" target="_blank">salma_.tarek</a></p>
+    <p class="end-message"> Card designs were created by <span> Rania Mekky</span></p>
+    <p>Instagram:<a class="level" href="https://www.instagram.com/raniamekkyy/ "target="_blank">raniamekky</a> </p>
+    <p><button onclick="back();" class="play-again"">Back To Game</button></p>
+   `;
+  }
+  document.querySelector('.place-deck').style.opacity='0.3'; 
+  document.querySelector('.cont').style.display='block';
+}
+
+
+function back(){
+  document.querySelector('.cont').style.display='none'; 
+  document.querySelector('.place-deck').style.opacity='1'; 
+  document.getElementById('one').classList.remove('active');
+  document.getElementById('two').classList.remove('active');
+  document.getElementById('three').classList.remove('active');
+  open=false;
+}
+
+
+function addlevel(){
+  if(document.querySelector('.levels').innerHTML===''){
+  document.querySelector('.levels').innerHTML=` 
+     <a class="level" onclick="href='/20-Game.html'">Easy</a> 
+     <a class="level" onclick="href='/32-Game.html'">Medium</a> 
+     <a class="level" onclick="href='/40-Game.html'">Hard</a> `;
+}
+else
+  document.querySelector('.levels').innerHTML='';
+
+}
 
 

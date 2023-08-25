@@ -8,8 +8,21 @@
     <link rel="stylesheet" href="/20-Game.css">
   </head>
   <body>
-    <div class="place-deck"></div>
-    <script src="/Cards.js"></script>
-    <script src="/FullGame.js"></script>
+    <div class="whole">
+      <nav class="navi">
+        <label class="logo"> Memory Game </label>
+        <ul>
+          <li><a class="nav-a" onclick="menu('one');" id="one"> About Game</a></li>
+          <li><a class="nav-a" onclick=" menu('two');" id= "two">Settings</a> </li>
+          <li><a class="nav-a" onclick="menu('three');" id="three">Credits</a></li>
+        </ul>
+      </nav>
+      <div class="contain">
+      <div class="place-deck"></div>
+      <div class="cont"></div>
+    </div>
+      <script src="/Cards.js"></script>
+      <script src="/FullGame.js"></script>
+    </div>
   </body>
 </html>
