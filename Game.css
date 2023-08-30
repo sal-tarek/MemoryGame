@@ -3,13 +3,16 @@ body{
   height:1000px;
   display:flex;
   justify-content: center;
+  background-color:black;
+  color:white;
 }
 .whole{
+  background-color: black;
   width:100%;
   height:100%;
 }
 nav{
-  background-color: rgb(144, 179, 198);
+  background-color: transparent;
   width:100%;
   height:50px;
   display: flex;
@@ -21,17 +24,19 @@ nav{
   list-style: none;
   border-radius: 1rem;
   box-sizing: border-box;
+  border:1px solid burlywood;
 }
 label{
   display: flex;
   align-items: center;
   justify-content: center;
+  transition:0.5s;
 }
 label.logo{
   padding-right: 100px;
   padding-top: 10px;
   padding-left: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   font-size:25px;
   width: 200px;
   font-weight: bold;
@@ -51,17 +56,22 @@ nav ul li{
   align-items: center;
 }
 nav ul li .nav-a{
-  color:black;
+  color:white;
   text-decoration: none;
   font-size:17px;
   height:50px;
   padding: 7px 13px;
   border-radius: 30px;
+  transition: 0.5s;
 }
 .nav-a.active,.nav-a:hover{
   cursor:pointer;
-  background-color:rgb(231, 236, 238);
-  transition: 0.5s;
+  color:rgb(210, 184, 144);
+  text-decoration-line: underline;
+}
+label:hover{
+  cursor:pointer;
+  color:rgb(210, 184, 144);
 }
 .check-btn{
   display:none;
@@ -111,6 +121,7 @@ transform: rotateY(180deg);
   background-color: rgb(221, 209, 209);
   transform:rotateY(180deg);
   outline: 1px solid rgb(212, 203, 203);
+  color:black;
 }
 .contain{
   position: relative;
@@ -128,7 +139,8 @@ transform: rotateY(180deg);
   padding:30px;
   border-radius: 2rem;
   margin-top: 150px;
-  box-shadow: 20px 20px 20px rgb(134, 129, 129);
+  outline:1px solid burlywood;
+  box-shadow: 10px 10px 10px rgb(23, 23, 23,0.3);
 }
 .end{
   margin-bottom: 20px;
@@ -138,6 +150,18 @@ button{
   border-radius: 1rem;
   border: none;
   padding:10px 24px;
+  cursor: pointer;
+  background-color: transparent;
+  color:aliceblue;
+  transition: 0.5s;
+  border: 1px solid burlywood;
+}
+.back-to-game{
+  border-radius: 0.5rem;
+}
+button:hover{
+  transform:scale(0.9);
+  color:rgb(234, 214, 187);
 }
 .level{
   cursor:pointer;
@@ -150,6 +174,13 @@ button{
 }
 .level:hover{
   color:rgb(219, 194, 163);
+}
+.lev{
+  border:none;
+  width:200px;
+  margin-top: 70px;
+  margin-left:150px;
+  margin-right:10px;
 }
 p{
   margin-bottom: 20px;

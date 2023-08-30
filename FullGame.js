@@ -16,7 +16,7 @@ rand=Math.floor(Math.random()*40);
   if(!Deck40[rand].displayed){
 html+=`<div class="container">
     
-<div id=${count} data-id=${count} data-side=front data-flip=${Deck40[rand].flipped} data-number=${Deck40[rand].number} class="cards">
+<div id=${count} data-id=${count} data-flip=${Deck40[rand].flipped} data-number=${Deck40[rand].number} class="cards">
 <div class="front"><img src="backCard.jpg"></div>
 <div class="back">
 ${Deck40[rand].number+' '+Deck40[rand].type}
@@ -35,7 +35,7 @@ else if(length==32){
       if(!Deck32[rand].displayed){
     html+=`<div class="container">
     
-    <div id=${count} data-id=${count} data-side=front data-flip=${Deck32[rand].flipped} data-number=${Deck32[rand].number} class="cards">
+    <div id=${count} data-id=${count} data-flip=${Deck32[rand].flipped} data-number=${Deck32[rand].number} class="cards">
     <div class="front"><img src="backCard.jpg"></div>
     <div class="back">
     ${Deck32[rand].number+' '+Deck32[rand].type}
@@ -53,7 +53,7 @@ else{
     rand=Math.floor(Math.random()*20);
       if(!Deck20[rand].displayed){
     html+=`<div class="container">
-    <div id=${count} data-id=${count} data-side=front data-flip=${Deck20[rand].flipped} data-number=${Deck20[rand].number} class="cards">
+    <div id=${count} data-id=${count} data-flip=${Deck20[rand].flipped} data-number=${Deck20[rand].number} class="cards">
     <div class="front"><img src="backCard.jpg"></div>
     <div class="back">
     ${Deck20[rand].number+' '+Deck20[rand].type}
@@ -104,7 +104,7 @@ card.forEach((div,index)=>{
       <p class="end-message"> You have collected the ${version} cards in ${tries} tries. </p>
       <p><button class="play-again" onclick="addlevel();"> Play Again </button></p>
       <div class="levels"></div>
-      <button> Home Page </button>
+      <button> <a onclick="href='/Home.html'"> Home Page </a> </button>
       </div>`;
       document.querySelector('.cont').style.display='block';
       document.querySelector('.place-deck').innerHTML='';
@@ -151,7 +151,7 @@ function menu(id){
     document.getElementById('three').classList.remove('active');
     document.querySelector('.cont').innerHTML=`
     <h2 class="end">About Game</h2>
-    <p class="end-message"> This game was implemented to challenge your memory. You should start by picking 2 cards and if they have a similar design/number, you have collected these cards. The goal is to collect all cards (number of cards depends on chosen level). It all comes back to whether you remember what cards you had previously flipped and their location, so focus and show us what you've got! Good Luck and Have Fun! </p> <p><button class="play-again"onclick="back();">Back To Game</button></p>`;
+    <p class="end-message"> This game was implemented to challenge your memory. You should start by picking 2 cards and if they have a similar design/number, you have collected these cards. The goal is to collect all cards (number of cards depends on chosen level). It all comes back to whether you remember what cards you had previously flipped and their location, so focus and show us what you've got! Good Luck and Have Fun! </p> <p><button class="back-to-game"onclick="back();">Back To Game</button></p>`;
   }
   else if(id==='two'){
     document.getElementById('two').classList.add('active');
@@ -166,11 +166,11 @@ function menu(id){
     </p>
     <div class="levels"></div>
     <p>
-    <button class="play-again"> Home Page 
+    <button class="play-again"> <a onclick="href='/Home.html'"> Home Page </a>
     </button>
     </p>
     <p>
-    <button class="play-again" onclick="back();">Back To Game</button>
+    <button class="lev" onclick="back();">Back To Game</button>
     </p>`;
   }
   else{
@@ -183,7 +183,7 @@ function menu(id){
     <p>Instagram:<a class="level" href="https://www.instagram.com/salma_.tarek/" target="_blank">salma_.tarek</a></p>
     <p class="end-message"> Card designs were created by <span> Rania Mekky</span></p>
     <p>Instagram:<a class="level" href="https://www.instagram.com/raniamekkyy/ "target="_blank">raniamekky</a> </p>
-    <p><button onclick="back();" class="play-again"">Back To Game</button></p>
+    <p><button onclick="back();" class="back-to-game"">Back To Game</button></p>
    `;
   }
   document.querySelector('.place-deck').style.opacity='0.3'; 
