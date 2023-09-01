@@ -71,8 +71,8 @@ document.querySelector('.place-deck').innerHTML=html;
 
 let tries=0;
 let flipped=[];
-let collection=//0
-version-2 //--> to check end result faster;
+let collection=0
+//version-2 //--> to check end result faster;
 let i=0;
 let amount=0;
 let prev=0;
