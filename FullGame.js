@@ -105,7 +105,7 @@ card.forEach((div,index)=>{
       <p class="end-message"> You have collected the ${version} cards in ${tries} tries. </p>
       <p><button class="play-again" onclick="addlevel();"> Play Again </button></p>
       <div class="levels"></div>
-      <p class="whatever"> <a onclick="href='/Home.html'"> Home Page </a> </p>
+      <p class="whatever"> <a onclick="href='/index.html'"> Home Page </a> </p>
       </div>`;
       document.querySelector('.cont').style.display='flex';
       document.querySelector('.whatever').style.marginLeft='5px';
@@ -176,7 +176,7 @@ function menu(id){
     </p>
     <div class="levels"></div>
     <p class="whatever">
-    <a  onclick="href='/Home.html'"> Home Page </a>
+    <a  onclick="href='/index.html'"> Home Page </a>
     </p>
     <p>
     <button class="lev" onclick="back();">Back To Game</button>
@@ -217,7 +217,7 @@ function back(){
     <p class="end-message"> You have collected the ${version} cards in ${tries} tries. </p>
     <p><button class="play-again" onclick="addlevel();"> Play Again </button></p>
     <div class="levels"></div>
-    <button> <a onclick="href='/Home.html'"> Home Page </a> </button>
+    <button> <a onclick="href='/index.html'"> Home Page </a> </button>
     </div>`;
     document.querySelector('.cont').style.height="300px";
     document.querySelector('.place-deck').innerHTML='';
