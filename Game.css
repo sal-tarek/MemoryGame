@@ -38,7 +38,11 @@ p{
   border-radius: 1rem;
   transition: 0.5s;
   cursor:pointer;
-  
+  color:white;
+}
+a{
+  text-decoration:none;
+  color:white;
 }
 nav{
   background-color: black;
@@ -270,9 +274,7 @@ transition:0.5s;
   width:650px;
   height:40px;
 }
-a{
-  text-decoration:none;
-}
+
 
 
 
