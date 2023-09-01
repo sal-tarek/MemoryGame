@@ -18,9 +18,8 @@ rand=Math.floor(Math.random()*40);
 html+=`<div class="container">
     
 <div id=${count} data-id=${count} data-flip=${Deck40[rand].flipped} data-number=${Deck40[rand].number} class="cards">
-<div class="front"><img class="back-of-cards" src="Back.JPG"></div>
-<div class="back">
-${Deck40[rand].number+' '+Deck40[rand].type}
+<div class="front"><img class="back-of-cards" src="Back.jpeg"></div>
+<div class="back"><img  src=${Deck40[rand].image}></img>
 </div>
 </div>
  </div>`;
@@ -37,9 +36,9 @@ else if(length==32){
     html+=`<div class="container">
     
     <div id=${count} data-id=${count} data-flip=${Deck32[rand].flipped} data-number=${Deck32[rand].number} class="cards">
-    <div class="front"><img src="Back.JPG"></div>
+    <div class="front"><img src="Back.jpeg"></div>
     <div class="back">
-    ${Deck32[rand].number+' '+Deck32[rand].type}
+    <img  src=${Deck32[rand].image}></img>
     </div>
     </div>
      </div>`;
@@ -55,9 +54,9 @@ else{
       if(!Deck20[rand].displayed){
     html+=`<div class="container">
     <div id=${count} data-id=${count} data-flip=${Deck20[rand].flipped} data-number=${Deck20[rand].number} class="cards"  >
-    <div class="front"><img src="Back.JPG"></div>
+    <div class="front"><img src="Back.jpeg"></div>
     <div class="back">
-    ${Deck20[rand].number+' '+Deck20[rand].type}
+    <img  src=${Deck20[rand].image}></img>
     </div>
     </div>
      </div>`;
@@ -72,7 +71,8 @@ document.querySelector('.place-deck').innerHTML=html;
 
 let tries=0;
 let flipped=[];
-let collection=version-2 //--> to check end result faster;
+let collection=//0
+version-2 //--> to check end result faster;
 let i=0;
 let amount=0;
 let prev=0;
@@ -105,10 +105,14 @@ card.forEach((div,index)=>{
       <p class="end-message"> You have collected the ${version} cards in ${tries} tries. </p>
       <p><button class="play-again" onclick="addlevel();"> Play Again </button></p>
       <div class="levels"></div>
-      <button> <a onclick="href='/Home.html'"> Home Page </a> </button>
+      <p class="whatever"> <a onclick="href='/Home.html'"> Home Page </a> </p>
       </div>`;
-      document.querySelector('.cont').style.display='block';
+      document.querySelector('.cont').style.display='flex';
+      document.querySelector('.whatever').style.marginLeft='5px';
+      document.querySelector('.cont').style.flexDirection='column';
       document.querySelector('.cont').style.height="300px";
+      document.body.style.background='url(end-background.jpeg)'
+      document.querySelector('.whole').style.backgroundColor='transparent';
       document.querySelector('.place-deck').innerHTML='';
       done=true;
       //document.querySelector('.navi').style.display='none';
@@ -119,7 +123,9 @@ card.forEach((div,index)=>{
   else{
     setTimeout(()=>{
     document.getElementById(i).innerHTML='';
+    document.getElementById(i).style.border="none";
     div.innerHTML='';
+    document.getElementById(div.dataset.id).style.border="none";
     amount=0;
       },
       1000
@@ -169,9 +175,8 @@ function menu(id){
     </button>
     </p>
     <div class="levels"></div>
-    <p>
-    <button class="play-again"> <a onclick="href='/Home.html'"> Home Page </a>
-    </button>
+    <p class="whatever">
+    <a  onclick="href='/Home.html'"> Home Page </a>
     </p>
     <p>
     <button class="lev" onclick="back();">Back To Game</button>
