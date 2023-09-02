@@ -22,6 +22,7 @@ p{
   margin-bottom: 20px;
 }
 .whatever{
+  text-decoration:none;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -42,9 +43,12 @@ p{
 a{
   text-decoration:none;
   color:white;
+<<<<<<< HEAD
 }
 a:hover{
 color:rgb(234, 214, 187);
+=======
+>>>>>>> 6120928921621356884a1997376ac86723d21d70
 }
 nav{
   background-color: black;
@@ -304,6 +308,7 @@ transition:0.5s;
   width:400px;
   height:450px;
 }
+
 
 
 
