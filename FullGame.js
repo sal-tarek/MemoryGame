@@ -2,6 +2,9 @@ const version=document.title[0]+''+document.title[1];
 console.log(version);
 let html='';//have to predefine with '' or else first box is undefined.
 let done=false;
+let displayInd=0;
+const cardDetails=['one.jpeg','two.jpeg','three.jpeg','four.jpeg','five.jpeg','six.jpeg','seven.jpeg','eight.jpeg','nine.jpeg','ten.jpeg'];
+
 shuffle(version);
 
 
@@ -180,15 +183,18 @@ function menu(id){
     document.getElementById('one').classList.add('active');
     document.getElementById('two').classList.remove('active');
     document.getElementById('three').classList.remove('active');
+    document.getElementById('four').classList.remove('active');
     document.querySelector('.cont').innerHTML=`
     <h2 class="end">About Game</h2>
     <p class="end-message"> This game was implemented to challenge your memory. You should start by picking 2 cards and if they have a similar design/number, you have collected these cards. The goal is to collect all cards (number of cards depends on chosen level). It all comes back to whether you remember what cards you had previously flipped and their location, so focus and show us what you've got! Good Luck and Have Fun! </p> <p><button class="back-to-game"onclick="back();">Back To Game</button></p>`;
     document.querySelector('.cont').style.height="470px";
+    document.querySelector('.cont').style.width="300px";
   }
   else if(id==='two'){
     document.getElementById('two').classList.add('active');
     document.getElementById('one').classList.remove('active');
     document.getElementById('three').classList.remove('active');
+    document.getElementById('four').classList.remove('active');
     document.querySelector('.cont').innerHTML=`
     <h2 class="end">Settings</h2>
     <p class="end-message">
@@ -204,11 +210,13 @@ function menu(id){
     <button class="lev" onclick="back();">Back To Game</button>
     </p>`;
     document.querySelector('.cont').style.height="330px";
+    document.querySelector('.cont').style.width="300px";
   }
-  else{
+  else if(id==='three'){
     document.getElementById('three').classList.add('active');
     document.getElementById('two').classList.remove('active');
     document.getElementById('one').classList.remove('active');
+    document.getElementById('four').classList.remove('active');
     document.querySelector('.cont').innerHTML=` 
     <h2 class="end">Credits</h2>
     <p class="end-message"> Program and website produced by <span>Salma Tarek Soliman</span></p>
@@ -218,9 +226,26 @@ function menu(id){
     <p><button onclick="back();" class="back-to-game"">Back To Game</button></p>
    `;
    document.querySelector('.cont').style.height="430px";
+   document.querySelector('.cont').style.width="300px";
   }
-  document.querySelector('.place-deck').style.opacity='0.3'; 
+  else{
+    document.getElementById('four').classList.add('active');
+    document.getElementById('two').classList.remove('active');
+    document.getElementById('three').classList.remove('active');
+    document.getElementById('one').classList.remove('active');
+    document.querySelector('.cont').innerHTML=`
+    <div class="slideshow"> 
+    <div class="arrows" onclick="shift('left')"><</div>
+    <div class="display"><img src=${cardDetails[displayInd]}></div>
+    <div class="arrows" onclick="shift('right')">></div>
+    </div>
+    <p><button onclick="back();" class="back-to-game"">Back To Game</button></p>
+   `;
+   document.querySelector('.cont').style.height="430px";
+   document.querySelector('.cont').style.width="500px";
+  }
   document.querySelector('.cont').style.display='block';
+  document.querySelector('.place-deck').style.opacity='0.3'; 
 }
 
 
@@ -231,7 +256,9 @@ function back(){
   document.getElementById('one').classList.remove('active');
   document.getElementById('two').classList.remove('active');
   document.getElementById('three').classList.remove('active');
+  document.getElementById('four').classList.remove('active');
   open=false;
+  displayInd=0;
   }
   else{
     document.querySelector('.cont').innerHTML=`
@@ -242,6 +269,7 @@ function back(){
     <button> <a onclick="href='/index.html'"> Home Page </a> </button>
     </div>`;
     document.querySelector('.cont').style.height="300px";
+    document.querySelector('.cont').style.width="300px";
     document.querySelector('.place-deck').innerHTML='';
     document.getElementById('one').classList.remove('active');
   document.getElementById('two').classList.remove('active');
@@ -259,6 +287,22 @@ function addlevel(){
 }
 else
   document.querySelector('.levels').innerHTML='';
+}
+
+function shift(direction){
+  if(direction==='left'){
+    if(displayInd===0)
+    displayInd=9;
+    else
+   displayInd--;
+  }
+  else if (direction==='right'){
+      if(displayInd===9)
+      displayInd=0;
+      else
+     displayInd++;
+  }
+document.querySelector('.display').innerHTML=`<img src=${cardDetails[displayInd]}>`;
 }
 
 

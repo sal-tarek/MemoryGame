@@ -43,6 +43,9 @@ a{
   text-decoration:none;
   color:white;
 }
+a:hover{
+color:rgb(234, 214, 187);
+}
 nav{
   background-color: black;
   width:100%;
@@ -127,6 +130,7 @@ nav ul li .nav-a{
   padding: 7px 13px;
   border-radius: 30px;
   position:relative;
+  cursor:pointer;
 }
 nav ul li .nav-a::after{
   content:'';
@@ -249,8 +253,8 @@ button:hover,.whatever:hover{
   border:none;
   width:150px;
   padding:5px;
-  margin-top: 27px;
-  margin-left:150px;
+  margin-top: 70px;
+  margin-left:180px;
   margin-right:10px;
 }
 span{
@@ -272,6 +276,33 @@ transition:0.5s;
 .logo-title{
   width:650px;
   height:40px;
+}
+.slideshow{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width:500px;
+  height:430px;
+}
+.arrows{
+  cursor: pointer;
+  width:50px;
+  height:50px;
+  margin-right: 20px;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size:70px;
+  color:burlywood;
+  transition:0.2s;
+}
+.arrows:active{
+  transform: scale(0.7);
+}
+.display{
+  /*outline:1px solid burlywood;*/
+  border-radius: 0.5rem;
+  width:400px;
+  height:450px;
 }
 
 
