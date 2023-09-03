@@ -1,6 +1,11 @@
+html{
+  height:100%;
+}
 body{
-  width: 1420px;
-  height:1000px;
+  min-height: 100%;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
   display:flex;
   justify-content: center;
   background-color:rgb(21, 20, 20);
@@ -222,6 +227,7 @@ button{
   margin-top: 15px;
   border-radius: 1rem;
   border: none;
+  font-weight: bold;
   padding:10px 24px;
   cursor: pointer;
   background-color: transparent;
@@ -233,6 +239,7 @@ button{
 }
 .back-to-game{
   border-radius: 0.5rem;
+  font-weight: bold;
 }
 button:hover,.whatever:hover{
   transform:scale(0.9);
@@ -244,6 +251,7 @@ button:hover,.whatever:hover{
   background-color: transparent;
   color:white;
   transition: 0.3s;
+  font-weight: bold;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -254,6 +262,7 @@ button:hover,.whatever:hover{
   color:rgb(219, 194, 163);
 }
 .lev{
+  font-weight: bold;
   border:none;
   width:150px;
   padding:5px;
@@ -308,7 +317,6 @@ transition:0.5s;
   width:400px;
   height:450px;
 }
-
 
 
 
